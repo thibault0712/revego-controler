@@ -1,9 +1,12 @@
 #include <Arduino.h>
 #include <U8g2lib.h>
+#include <RF24.h>
 #ifndef GLOBAL_VARIABLES_H
 #define GLOBAL_VARIABLES_H
 
+
 extern U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2;
+extern RF24 radio;
 
 const int NUM_ITEMS = 5;
 const int NUM_SETTINGS_NAME = 5;
@@ -27,7 +30,15 @@ const int BUTTON_OK_PIN = 27;
 const int BUTTON_DOWN_PIN = 14;
 const int ANALOGIC_ACCELERATOR = 34;
 const int ANALOGIC_BATTERY_CONTROLER = 35;
+const int pinCE = 4;
+const int pinCSN = 5;
 
+struct DataTrailer {
+  int batteryData;
+  int speedData;
+};
+
+extern byte adress_trailer[6];
 extern String speed_viewer_type;
 extern int accelerator_value_for_motor;
 extern int data_to_send;
@@ -49,6 +60,7 @@ extern int current_screen;
 //4 -> Settings
 extern unsigned long currentTime;
 extern unsigned long previousTime;
+extern unsigned long lastButtonClickTime;
 extern bool already_pressed_leave;
 extern bool isEnable;
 extern bool speed_limiter;
