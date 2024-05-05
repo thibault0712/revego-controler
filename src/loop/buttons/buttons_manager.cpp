@@ -2,7 +2,7 @@
 
 void buttons_manager(){
     button_leave_manager();
-    if (currentTime >= lastButtonClickTime + 400){
+    if (currentTime >= lastButtonClickTime + 150){
         do {
             switch(current_screen){
                 case 0: //home screen
@@ -11,6 +11,10 @@ void buttons_manager(){
                     break;
                 case 1: //speed screen
                     buttons_manager_speed();
+                    lastButtonClickTime = currentTime;
+                    break;
+                case 3: //bluetooth screen
+                    buttons_manager_bluetooth();
                     lastButtonClickTime = currentTime;
                     break;
                 case 4: //settings screen

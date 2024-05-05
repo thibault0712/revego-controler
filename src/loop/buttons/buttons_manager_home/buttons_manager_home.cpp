@@ -6,6 +6,12 @@ void buttons_manager_home(){
 				case 0:
 					current_screen = 1; //SPEED SCREEN
 					break;
+				case 1:
+					current_screen = 2; //BATTERY SCREEN
+					break;
+				case 2:
+					current_screen = 3; //BLUETOOTH SCREEN
+					break;
 				case 3:
 					setting_selected = 0;
 					setting_box_position = 0;

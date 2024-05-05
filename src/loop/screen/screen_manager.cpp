@@ -10,6 +10,12 @@ void screen_manager(){
             case 1: //speed screen
                 screen_speed();
                 break;
+            case 2:
+                screen_battery();
+                break;
+            case 3:
+                screen_bluetooth();
+                break;
             case 4: //settings screen
                 screen_settings();
                 break; 

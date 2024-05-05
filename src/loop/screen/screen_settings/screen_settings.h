@@ -7,6 +7,7 @@
 #define SCREEN_SETTINGS_H
 
 int settings_text_color(int _setting_box_position, int _text_position);
+char* get_setting_value(int setting);
 void screen_settings();
 
 #endif

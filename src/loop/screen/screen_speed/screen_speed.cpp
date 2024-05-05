@@ -2,9 +2,9 @@
 
 void screen_speed(){
     u8g2.drawBitmap(0, 0, 128/8, 64, epd_bitmap_speed_background);
-	if (speed_regulator == true){ u8g2.drawBitmap(52, 2, 16/8, 9, epd_bitmap_icon_speed_limit); }
-	if (speed_limiter == true){ u8g2.drawBitmap(52, 2, 16/8, 9, epd_bitmap_icon_speed_limit); }
-	if (eco_batterie == true){ u8g2.drawBitmap(67, 2, 9/8, 9, epd_bitmap_icon_eco_batterie); }
+	if (speed_regulator){ u8g2.drawBitmap(52, 2, 16/8, 9, epd_bitmap_icon_speed_limit); }
+	if (speed_limiter){ u8g2.drawBitmap(52, 2, 16/8, 9, epd_bitmap_icon_speed_limit); }
+	if (eco_batterie){ u8g2.drawBitmap(67, 2, 9/8, 9, epd_bitmap_icon_eco_batterie); }
 	u8g2.setFont(u8g2_font_logisoso22_tf);
 	
 	const char* value = nullptr;
@@ -44,14 +44,8 @@ char* speed_convertissor_for_screen(){
 //Comme on renvoie un pointeur, static est important car il permet de ne pas supprimer la zone en mémoire du résultat
 char* battery_controler_convertissor_for_screen(){
 	static char result[4];
-	analogic_battery_controler = analogRead(ANALOGIC_BATTERY_CONTROLER);
-	int percentage_battery_controler = map(analogic_battery_controler, 2670, 3475, 0, 100);
-	if (percentage_battery_controler < 0){
-		percentage_battery_controler = 0;
-	}else if (percentage_battery_controler > 100){
-		percentage_battery_controler = 100;
-	}
-	sprintf(result, "%d%%", percentage_battery_controler);
+	// sprintf(result, "%d%%", get_battery_controler());
+	sprintf(result, "%d%%", 30);
 	return result;
 }
 

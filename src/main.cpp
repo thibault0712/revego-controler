@@ -5,9 +5,12 @@
 #include "loop/get_data/get_data.h"
 #include "loop/functionality/functionality_manager.h" 
 #include "loop/send_data/radio/send_data_trailer.h"
+#include "loop/bluetooth/bluetooth.h"
 
 void setup() {
   serialMonitor();
+  preferencesInitialisation();
+  bluetoothInitialisation();
   screenInitialisation();
   buttonsInitialisation();
   radioInitialisation();
@@ -20,13 +23,15 @@ void loop() {
   }else{
 	  currentTime=millis();
     get_analogic_accelerator();
-    get_actual_speed();
-    get_battery_trailer();
 
     screen_manager();
     buttons_manager();
     speed_regulator_breaker();
     speed_gestionary();
+
     send_data_trailer();
+    get_data_trailer();
+
+    send_bluetooth_battery_trailer();
   }
 }
