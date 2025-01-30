@@ -1,1 +1,5 @@
-Project who has got the ambition to create a controler connected to the phone with a lot of settings and can communicate with a trailer to push a bicicle. PCB boards are homemade. The phone app is available on an other repo. 
+## 🚀 Presentation
+This aims to create a controler connected to the phone with multiple settings. It communicate with a trailer to push a bicicle. PCB boards are homemade. The phone app is available on an other repo
+
+## ⚙️ Installation and execution 
+To install and execute this project you need to install platforms IO
